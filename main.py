@@ -12,12 +12,14 @@ os.system("touch "+path)
 os.system("chmod +x "+path)
 append(path, "#!bin/shell\n")
 
-modules = ["Echo"]
+modules = ["Exit", "Echo"]
 
 while(1):
     print("Choose the module you want to add:\n")
-    for i, elmnt in enumerate(modules,start=1):
+    for i, elmnt in enumerate(modules,start=0):
         print("["+str(i)+"] "+elmnt+"\n")
     module = input("Module:")
-    if(module == "1"):
+    if(module == "0"):
+        exit()
+    elif(module == "1"):
         append(path, "echo "+input("Text to echo:"))
