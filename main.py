@@ -6,10 +6,11 @@ def append(filename, string):
     with open(filename,"a") as w:
         w.write(string)
 
-path="trash/"+input("Enter the name of your file >> ")+".sh"
+path=input("Enter the name of your file >> ")+".sh"
 
 os.system("touch "+path)
-append(path, "Howdy\n")
+os.system("chmod +x "+path)
+append(path, "#!bin/shell\n")
 
 modules = ["Echo"]
 
@@ -19,4 +20,4 @@ while(1):
         print("["+str(i)+"] "+elmnt+"\n")
     module = input("Module:")
     if(module == "1"):
-            print("Module: "+modules[int(module)-1])
+        append(path, "echo "+input("Text to echo:"))
