@@ -14,8 +14,8 @@ def echo():
     elif(choice == "2"):
         variables = findVar(path)
         for i in range(len(variables[0])):
-            print("["+str(i)+"] "+variables[0][i])
-        input("Choose a variable\n>> ") 
+            print("["+str(i+1)+"] "+variables[0][i])
+        append(path, "echo $"+variables[0][int(input("Choose a variable\n>> "))-1])
 
 
 def variable():
