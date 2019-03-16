@@ -7,7 +7,12 @@ def append(filename, string):
         w.write(string+"\n")
 
 def echo():
-    append(path, "echo "+input("Text to echo: "))
+    choice = input("[1] Echo text\n[2] Echo variable\n>>")
+    if(choice == "1"):
+        append(path, "echo "+input("Text to echo: "))
+    elif(choice == "2"):
+        append(path, "echo $"+input("Variable name: "))
+
 
 def variable():
     name = input("Name:")
