@@ -3,10 +3,13 @@ import re
 
 print("Welcome to the shellscript construction kit\n")
 
-# Appends <string> to a <filename>
+# Appends <string> to <filename>
 def append(filename, string):
     with open(filename,"a") as w:
         w.write(string+"\n")
+
+def clear():
+    print("\n"*100)
 
 def echo():
     choice = input("[1] Echo text\n[2] Echo variable\n>> ")
@@ -26,7 +29,22 @@ def variable():
     append(path, name+"="+value)
 
 def ifstatement():
-    print("Inside if")
+    types = ["Variable comparison"]
+
+    print("Choose the type of condition\n")
+
+    for i, elmnt in enumerate(types,start=1):
+        print("["+str(i)+"] "+elmnt+"\n")
+
+    choice = input("Type of condition:\n>> ")
+
+    if choice == "1":
+        variables = findVar(path)
+        for i in range(len(variables[0])):
+            print("["+str(i+1)+"] "+variables[0][i])
+        variable = variables[0][int(input("Choose a variable:\n>> "))]
+
+    
 
 def custom():
     append(path, input("Enter the line you want to add:\n>> "))
@@ -55,6 +73,7 @@ modules = ["Echo", "Variable", "If Statement", "Custom", "Exit"]
 
 
 while(1):
+    clear()
     print("Choose the module you want to add:\n")
     for i, elmnt in enumerate(modules,start=1):
         print("["+str(i)+"] "+elmnt+"\n")
