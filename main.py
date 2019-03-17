@@ -3,6 +3,7 @@ import re
 
 print("Welcome to the shellscript construction kit\n")
 
+# Appends <string> to a <filename>
 def append(filename, string):
     with open(filename,"a") as w:
         w.write(string+"\n")
@@ -25,6 +26,8 @@ def variable():
         value="\""+value+"\""
     append(path, name+"="+value)
 
+# Function that returns a list of all existing variables in <filename> and their values in this format:
+# [[name1,name2],[value1,value2]]
 def findVar(filename):
     variables = [[],[]]
     pattern=r'^(\S+) *[=] *"*([^"\n]+)"*;*[\n]*$'
