@@ -57,4 +57,5 @@ while(1):
         print("["+str(i)+"] "+elmnt+"\n")
 
     module = input("Choose module: ")
+    # Converting to lowercase, removing whitespaces and calling function
     eval(modules[int(module)-1].lower().replace(" ","")+"()")
