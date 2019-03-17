@@ -18,13 +18,15 @@ def echo():
             print("["+str(i+1)+"] "+variables[0][i])
         append(path, "echo $"+variables[0][int(input("Choose a variable\n>> "))-1])
 
-
 def variable():
     name = input("Name:")
     value = input("Value:")
     if ' ' in value:
         value="\""+value+"\""
     append(path, name+"="+value)
+
+def ifstatement():
+    print("Inside if")
 
 # Function that returns a list of all existing variables in <filename> and their values in this format:
 # [[name1,name2],[value1,value2]]
@@ -39,13 +41,14 @@ def findVar(filename):
                 variables[1].append(obj.group(2))
     return variables
 
+
 path=input("Enter the name of your file >> ")+".sh"
 
 os.system("touch "+path)
 os.system("chmod +x "+path)
 append(path, "#!bin/shell\n")
 
-modules = ["Echo", "Variable", "If/Else", "Exit"]
+modules = ["Echo", "Variable", "If Statement", "Exit"]
 
 
 while(1):
@@ -54,4 +57,4 @@ while(1):
         print("["+str(i)+"] "+elmnt+"\n")
 
     module = input("Choose module: ")
-    eval(modules[int(module)-1].lower()+"()")
+    eval(modules[int(module)-1].lower().replace(" ","")+"()")
