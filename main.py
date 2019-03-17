@@ -28,6 +28,9 @@ def variable():
 def ifstatement():
     print("Inside if")
 
+def custom():
+    append(path, input("Enter the line you want to add:\n>> "))
+
 # Function that returns a list of all existing variables in <filename> and their values in this format:
 # [[name1,name2],[value1,value2]]
 def findVar(filename):
@@ -48,7 +51,7 @@ os.system("touch "+path)
 os.system("chmod +x "+path)
 append(path, "#!bin/shell\n")
 
-modules = ["Echo", "Variable", "If Statement", "Exit"]
+modules = ["Echo", "Variable", "If Statement", "Custom", "Exit"]
 
 
 while(1):
