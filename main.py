@@ -30,6 +30,7 @@ def variable():
 
 def ifstatement():
     types = ["Variable comparison"]
+    statement = ""
 
     print("Choose the type of condition\n")
 
@@ -42,7 +43,10 @@ def ifstatement():
         variables = findVar(path)
         for i in range(len(variables[0])):
             print("["+str(i+1)+"] "+variables[0][i])
-        variable = variables[0][int(input("Choose a variable:\n>> "))]
+        variable = variables[0][int(input("Choose a variable:\n>> "))-1]
+        compareTo = input("What do you want to compare "+variable+" to?\n>> ")
+        statement += "if [ \"$"+variable+" = "+compareTo+" ]\nthen\n"
+        append(path,statement)
 
     
 
