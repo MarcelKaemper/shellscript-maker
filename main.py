@@ -45,8 +45,11 @@ def ifstatement():
             print("["+str(i+1)+"] "+variables[0][i])
         variable = variables[0][int(input("Choose a variable:\n>> "))-1]
         compareTo = input("What do you want to compare "+variable+" to?\n>> ")
-        statement += "if [ \"$"+variable+" = "+compareTo+" ]\nthen\n"
+        statement += "if [ \"$"+variable+"\" = "+compareTo+" ]\nthen"
         append(path,statement)
+        append(path,"fi")
+
+    # consequence = input("If condition is true\n>> ")
 
     
 
